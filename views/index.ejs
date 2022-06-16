@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <h1>Registration FORM</h1>
+   
+<form method="post" action="/demoadd" id="formdata"><table>
+    <tr> <td> First name: </td> <td>
+    <input id="name" type="text" name="first" placeholder="username" maxlength="10" minlength="2" pattern="[A-Za-z]{2-10}" required> </td> </tr> 
+    <tr> <td> LAST name: </td> <td>
+    <input id="lname" type="text" name="lastname" placeholder="surname" maxlength="15" minlength="4" pattern="[A-Za-z]{4-15}" required> </td> </tr> 
+    <tr> <td> Email Address: </td> <td>
+    <input id="email" type="email" name="useremail" placeholder="@gmail.com" required> </td> </tr> 
+    <tr> <td> PASSWORD: </td> <td> 
+    <input id="password" name="password" type="password" placeholder="password" required> </td> </tr> 
+    <tr> <td> CONFORM PASSWORD: </td> <td> 
+    <input id="conformpass" type="password" name="userpassword" placeholder="conform password" required></td> </tr>
+    <tr> <td> PHONE NUMBER: </td> <td>  
+    <input id="phonenum" type="number" name="userno" placeholder="+91" required pattern="[0-9]{10}" > </td> </tr>
+    
+    </table> 
+
+ 
+
+    <p>What is your gender?</p>
+    <input type="radio" name="gender" value="male" required> Male <input type="radio" name="gender" value="female" required> Female
+
+
+
+<table>
+    <tr> <td> <input type="submit"  value="Registration"> </td> <td> 
+    
+     
+</table>
+</form>
+</body>
+
+</html>
+
+<script>
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("conformpass");
+
+function validatePassword(){
+  if(password.value != conformpass.value) {
+    conformpass.setCustomValidity("Passwords Don't Match");
+  } else {
+    conformpass.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+conformpass.onkeyup = validatePassword;
+</script>
+
+<script src=
+    "https://ajax.googleapis.com/ajax/libs/
+     jquery/3.3.1/jquery.min.js">
+    </script>
+    <!-- Popper JS -->
+<script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/
+     popper.js/1.12.9/umd/popper.min.js">
+    </script>
+    <!-- Latest compiled JavaScript -->
+<script src=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/
+     4.0.0/js/bootstrap.min.js">
+    </script>
+    <script>
+        jQuery('#formdata').validate({
+            rules:{
+                name:"required"    
+            },
+            messages:{
+                name:"required"
+
+            }
+        })
+    </script>
